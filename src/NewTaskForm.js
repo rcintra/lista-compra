@@ -16,11 +16,11 @@ export default function NewTaskForm() {
       <input
         type="text"
         value={task}
-        placeholder="Get some eggs..."
+        placeholder="Incluir os itens por aki ..."
         onChange={(e) => setTask(e.target.value)}
         required
       />
-      <button>Add</button>
+      <button>+</button>
     </form>
   );
 }

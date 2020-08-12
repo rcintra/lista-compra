@@ -16,7 +16,14 @@ export default function TaskProvider({ children }) {
         complete: false,
       },
     ]);
-
+  
+  const deleteTask = (id) => {        
+    setTasks(
+      tasks.map((list) => ({
+         ...list, lastUpdated: Date.now() })
+      ).filter((list) => list.id !== id));
+  }
+  
   // 5
   const setStatusTask = (id, status) => {
     setTasks(tasks.map((t) => (t.id === id ? { ...t, complete: status } : t)));
@@ -24,7 +31,7 @@ export default function TaskProvider({ children }) {
 
   // 6
   return (
-    <TaskContext.Provider value={{ tasks, addTask, setStatusTask }}>
+    <TaskContext.Provider value={{ tasks, addTask, setStatusTask, deleteTask }}>
       {children}
     </TaskContext.Provider>
   );
